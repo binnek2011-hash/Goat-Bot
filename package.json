@@ -6,7 +6,7 @@
     "start": "node index.js"
   },
   "dependencies": {
-    "fb-chat-api": "github:Schmavery/facebook-chat-api",
+    "fb-chat-api": "^1.6.1",
     "fs-extra": "^11.1.1"
   }
 }
