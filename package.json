@@ -1,13 +1,12 @@
 {
   "name": "goatbot",
   "version": "1.0.0",
-  "description": "Messenger GoatBot",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
   },
   "dependencies": {
-    "fb-chat-api": "^1.0.0",
+    "fb-chat-api": "github:Schmavery/facebook-chat-api",
     "fs-extra": "^11.1.1"
   }
 }
