@@ -17,13 +17,15 @@ login({ email, password }, (err, api) => {
     });
 
     api.listenMqtt((err, event) => {
-        if (err) return console.log(err);
+        if (err) {
+            console.log(err);
+            return;
+        }
 
         if (event.type !== "message") return;
 
-        const msg = event.body?.toLowerCase();
+        const msg = event.body ? event.body.toLowerCase() : "";
         const threadID = event.threadID;
-        const senderID = event.senderID;
 
         // ping pong
         if (msg === "ping") {
@@ -35,21 +37,10 @@ login({ email, password }, (err, api) => {
             api.sendMessage("Chào bạn 👋", threadID);
         }
 
-        // info
-        if (msg === "info") {
-            api.sendMessage(
-                "GOAT BOT đang chạy trên Render 🚀",
-                threadID
-            );
+        // test bot
+        if (msg === "bot") {
+            api.sendMessage("Bot đang hoạt động 🤖", threadID);
         }
-
-        // help
-        if (msg === "help") {
-            api.sendMessage(
-                "Lệnh:\n- ping\n- hi\n- info\n- help",
-                threadID
-            );
-        }
-
     });
+
 });
